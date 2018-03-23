@@ -12,7 +12,7 @@ def cleanse_tweet(tweet):
 	"""given a tweet as a tokenized list, removes uneccesary words"""
 	#Note: I added some words of my own to filter, because useless strings
 	#such as "n't" or "http" were appearing in the list of most common words
-	stop_words = stopwords.words('english') + list(string.punctuation) + ['“','”', 'http', "'s", '``', 'realdonaldtrump', '...', "n't", "''"]
+	stop_words = stopwords.words('english') + list(string.punctuation) + ['“','”', 'http', "'s", '``', 'realdonaldtrump', '...', "n't", "''", "rt"]
 	return [word for word in tweet if word not in stop_words]
 
 def printable_tweet(tweet):
@@ -32,7 +32,7 @@ def print_most_common(frequencies, num=20):
 		print(counts[i])
 
 if __name__ == "__main__":
-	raw_data = json.load(open('trumptweets.json'))
+	raw_data = json.load(open('obamatweets.json'))
 	tweets = []
 	for x in raw_data:
 		#strip just the tweet text, append to list of tweets
